@@ -1,7 +1,7 @@
-// import { useRef } from "react";
+import { useRef } from "react";
 
 export default function Login() {
-  // const emailRef = useRef();
+  const formRef = useRef();
   // const passwordRef= useRef();
 
 function handleSubmit(e){
@@ -14,15 +14,22 @@ function handleSubmit(e){
 
 //  emailRef.current.value="";
 //  passwordRef.current.value="";
+
  const formData = new FormData(e.target);
- const data = Object.fromEntries(formData.entries());
+ const data =  Object.fromEntries(formData.entries());
  console.log(data);
+
+
+//Resetting the form using the  reset() method connected using useRef
+ if(formRef.current){
+  formRef.current.reset();
+ }
 
 }
   
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <h2>Login</h2>
 
       <div className="control-row">
