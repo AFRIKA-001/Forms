@@ -1,5 +1,5 @@
 import Header from './components/Header.jsx';
-// import Login from './components/Login.jsx';
+import Login from './components/Login.jsx';
 import Signup from './components/signup.jsx';
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <>
       <Header />
       <main>
+        <Login/>
         <Signup/>
       </main>
     </>
