@@ -1,4 +1,7 @@
+import { useRef } from "react";
+
 export default function Signup() {
+    const formRef = useRef();
 
 function handleSubmit(e){
     e.preventDefault();
@@ -8,13 +11,18 @@ function handleSubmit(e){
  const data = Object.fromEntries(formData.entries());
  data.aquisition = aquisitionData;
  console.log(data);
+
+//Resetting the form using the  reset() method connected using useRef
+if(formRef.current){
+    formRef.current.reset();
+}
 }
 
 
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <h2>Welcome on board!</h2>
       <p>We just need a little bit of data from you to get you started 🚀</p>
 
